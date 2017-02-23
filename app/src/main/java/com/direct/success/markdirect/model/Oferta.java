@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Oferta {
     private String tittle;
-    private Date date;
+    private String date;
     private String description;
     private String imageUrl;
 
@@ -16,11 +16,11 @@ public class Oferta {
         this.tittle = tittle;
     }
 
-    public Date getDate() {
+    public String  getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
