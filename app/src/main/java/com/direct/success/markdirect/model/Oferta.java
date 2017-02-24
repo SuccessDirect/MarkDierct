@@ -1,12 +1,12 @@
 package com.direct.success.markdirect.model;
 
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 
 public class Oferta {
-    private String tittle;
-    private String date;
-    private String description;
-    private String imageUrl;
+    @SerializedName("titulo") private String tittle;
+    @SerializedName("validez") private String date;
+    @SerializedName("oferta") private String description;
+    @SerializedName("imagen") private String imageUrl;
 
     public String getTittle() {
         return tittle;
