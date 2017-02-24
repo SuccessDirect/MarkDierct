@@ -2,13 +2,11 @@ package com.direct.success.markdirect.managers;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Date;
-
 public class OfertasEntity {
-    @SerializedName("title") private String title;
-    @SerializedName("date") private String dateOff;
-    @SerializedName("description") private String description;
-    @SerializedName("image") private String imageUrl;
+    @SerializedName("titulo") private String title;
+    @SerializedName("validez") private String dateOff;
+    @SerializedName("oferta") private String description;
+    @SerializedName("imagen") private String imageUrl;
 
     public String getTitle() {
         return title;

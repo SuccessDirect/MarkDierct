@@ -24,7 +24,7 @@ public class OfertasApiManager {
     public void setListener(OfertasApiManagerNewOfertasListener listener) {
         this.listener = listener;
     }
-    private static final String BASEURL="http://192.168.1.35:8000/api/ofertas";
+    private static final String BASEURL="http://192.168.208.20:8000/api/ofertas";
 
     public void newOferta(Context context){
         RequestQueue queue = Volley.newRequestQueue(context);
