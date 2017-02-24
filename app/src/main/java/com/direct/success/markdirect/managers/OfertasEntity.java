@@ -1,42 +1,19 @@
 package com.direct.success.markdirect.managers;
 
+import com.direct.success.markdirect.model.Oferta;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class OfertasEntity {
-    @SerializedName("titulo") private String title;
-    @SerializedName("validez") private String dateOff;
-    @SerializedName("oferta") private String description;
-    @SerializedName("imagen") private String imageUrl;
+    @SerializedName("ofertas") private List<Oferta> ofertaList;
 
-    public String getTitle() {
-        return title;
+
+    public List<Oferta> getOfertaList() {
+        return ofertaList;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDateOff() {
-        return dateOff;
-    }
-
-    public void setDateOff(String dateOff) {
-        this.dateOff = dateOff;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setOfertaList(List<Oferta> ofertaList) {
+        this.ofertaList = ofertaList;
     }
 }

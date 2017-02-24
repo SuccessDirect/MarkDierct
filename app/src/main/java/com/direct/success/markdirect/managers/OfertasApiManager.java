@@ -14,17 +14,18 @@ import com.google.gson.GsonBuilder;
 
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.List;
 
 public class OfertasApiManager {
     public interface OfertasApiManagerNewOfertasListener{
-        public void onNewOferta(Oferta oferta);
+        public void onNewOferta(List<Oferta> oferta);
     }
     private OfertasApiManagerNewOfertasListener listener;
 
     public void setListener(OfertasApiManagerNewOfertasListener listener) {
         this.listener = listener;
     }
-    private static final String BASEURL="http://192.168.208.20:8000/api/ofertas";
+    private static final String BASEURL="https://demo0140909.mockable.io/";
 
     public void newOferta(Context context){
         RequestQueue queue = Volley.newRequestQueue(context);
@@ -44,18 +45,12 @@ public class OfertasApiManager {
     }
 
     private void parseJSON(String response){
-        Oferta oferta = new Oferta();
         Reader reader = new StringReader(response);
         Gson gson = new GsonBuilder().create();
-        OfertasEntity[] ofertasEntities = gson.fromJson(reader, OfertasEntity[].class);
-        for (int i = 0; i < ofertasEntities.length; i++) {
-            oferta.setTittle(ofertasEntities[i].getTitle());
-            oferta.setDate(ofertasEntities[i].getDateOff());
-            oferta.setDescription(ofertasEntities[i].getDescription());
-            oferta.setImageUrl(ofertasEntities[i].getImageUrl());
-        }
+        OfertasEntity ofertasEntities = gson.fromJson(reader, OfertasEntity.class);
+
         if(listener != null){
-            listener.onNewOferta(oferta);
+            listener.onNewOferta(ofertasEntities.getOfertaList());
         }
     }
 
