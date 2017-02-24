@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
+    android:layout_gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Título"
+                    android:id="@+id/row_offers___offer_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.8"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:textSize="16sp"
+                    android:layout_below="@id/row_offers___offer_image"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:text="Fecha"
+                    android:id="@+id/row_offers___offer_fecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/row_offers___offer_text"
+                    android:textStyle="bold"
+                    android:gravity="left"
+                    android:textSize="16sp"
+                    android:layout_below="@id/row_offers___offer_image"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="100dp"
+                    />
+            <TextView
+                android:text="Desc"
+                android:id="@+id/row_offers___offer_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/row_offers___offer_text"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:textSize="16sp"
+                android:layout_marginTop="10dp"
+                />
+
+                <ImageView
+                    android:id="@+id/row_offers___offer_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#c91616"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
+            <ImageView
+                android:layout_margin="4dp"
+                android:padding="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#ffffff"
+                android:layout_weight="1.2"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
