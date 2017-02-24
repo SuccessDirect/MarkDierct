@@ -25,6 +25,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
+                <ImageView
+                    android:id="@+id/row_offers___offer_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#c91616"
+                    android:scaleType="fitXY"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true" />
+
                 <TextView
                     android:text="Título"
                     android:id="@+id/row_offers___offer_text"
@@ -62,14 +71,7 @@
                 android:layout_marginTop="10dp"
                 />
 
-                <ImageView
-                    android:id="@+id/row_offers___offer_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:background="#c91616"
-                    android:scaleType="fitXY"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true" />
+
             </RelativeLayout>
             <ImageView
                 android:layout_margin="4dp"
