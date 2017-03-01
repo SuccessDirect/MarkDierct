@@ -5,7 +5,7 @@ import android.util.Log;
 
 import io.realm.Realm;
 
-public class SuccessDirect extends Application {
+public class SuccessDirectApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
