@@ -1,28 +1,20 @@
 package com.direct.success.markdirect.activities;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.direct.success.markdirect.R;
-import com.direct.success.markdirect.adapters.OfertasAdapter;
 import com.direct.success.markdirect.fragments.OfertasListFragment;
-import com.direct.success.markdirect.managers.OfertasApiManager;
-import com.direct.success.markdirect.model.Oferta;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class GeneralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
