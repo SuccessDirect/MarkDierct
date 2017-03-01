@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_general"
@@ -9,9 +9,12 @@
     tools:context="com.direct.success.markdirect.activities.GeneralActivity"
     tools:showIn="@layout/app_bar_general">
 
-    <android.support.v7.widget.RecyclerView
+   <!-- <android.support.v7.widget.RecyclerView
         android:id="@+id/ofertas_list_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
-</RelativeLayout>
+    </android.support.v7.widget.RecyclerView>-->
+
+
+
+</FrameLayout>

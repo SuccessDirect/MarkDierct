@@ -1,5 +1,6 @@
 package com.direct.success.markdirect.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,25 +18,39 @@ public class OfertasAdapter extends RecyclerView.Adapter<OfertasViewHolder>{
     private List<Oferta> listOfOfertas;
     private LayoutInflater layoutInflater;
 
+
     public OfertasAdapter(Context context, List<Oferta> listOfOfertas) {
+        this.layoutInflater = LayoutInflater.from(context);
         this.listOfOfertas = listOfOfertas;
-        layoutInflater = LayoutInflater.from(context);
+    }
+
+    public List<Oferta> getListOfOfertas() {
+        return listOfOfertas;
+    }
+
+    public void setListOfOfertas(List<Oferta> listOfOfertas) {
+        this.listOfOfertas = listOfOfertas;
     }
 
     @Override
     public OfertasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = layoutInflater.inflate(R.layout.row_offers, parent, false);
-        return new OfertasViewHolder(view);
+        OfertasViewHolder viewHolder = new OfertasViewHolder(view);
+        return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(OfertasViewHolder holder, int position) {
-        Oferta oferta = listOfOfertas.get(position);
+        final Oferta oferta = listOfOfertas.get(position);
         holder.setOferta(oferta);
     }
 
     @Override
     public int getItemCount() {
+        if (listOfOfertas == null){
+            return 0;
+        }
         return listOfOfertas.size();
     }
+
 }

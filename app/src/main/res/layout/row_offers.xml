@@ -32,7 +32,7 @@
                     android:background="#c91616"
                     android:scaleType="fitXY"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true" />
+                    />
 
                 <TextView
                     android:text="Título"
@@ -45,6 +45,7 @@
                     android:textSize="16sp"
                     android:layout_below="@id/row_offers___offer_image"
                     android:layout_marginTop="10dp"
+                    android:layout_margin="10dp"
                     />
                 <TextView
                     android:text="Fecha"
@@ -59,6 +60,12 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="100dp"
                     />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/row_offers___offer_text"
+                    android:background="#000000"
+                    ></FrameLayout>
             <TextView
                 android:text="Desc"
                 android:id="@+id/row_offers___offer_desc"
@@ -69,6 +76,7 @@
                 android:gravity="left"
                 android:textSize="16sp"
                 android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
                 />
 
 

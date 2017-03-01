@@ -1,5 +1,8 @@
 package com.direct.success.markdirect.activities;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +17,7 @@ import android.view.MenuItem;
 
 import com.direct.success.markdirect.R;
 import com.direct.success.markdirect.adapters.OfertasAdapter;
+import com.direct.success.markdirect.fragments.OfertasListFragment;
 import com.direct.success.markdirect.managers.OfertasApiManager;
 import com.direct.success.markdirect.model.Oferta;
 
@@ -22,28 +26,25 @@ import java.util.List;
 
 public class GeneralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private RecyclerView offersRecyclerView;
-    private List<Oferta> listOfOfertas = new LinkedList<>();
-    private OfertasAdapter adapter;
+
+    // private List<Oferta> listOfOfertas = new LinkedList<>();
+    // private OfertasAdapter adapter;
+    OfertasListFragment ofertasListFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
-        OfertasApiManager ofertasApiManager = new OfertasApiManager();
-        ofertasApiManager.setListener(new OfertasApiManager.OfertasApiManagerNewOfertasListener() {
-            @Override
-            public void onNewOferta(List<Oferta> oferta) {
-                listOfOfertas = oferta;
-                offersRecyclerView = (RecyclerView) findViewById(R.id.ofertas_list_recyclerView);
-                offersRecyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
-                adapter = new OfertasAdapter(getBaseContext(), listOfOfertas);
-                offersRecyclerView.setAdapter(adapter);
-            }
-        });
-        ofertasApiManager.newOferta(this);
+        Fragment fragment = new OfertasListFragment();
+
+        fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+
+
+
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -65,7 +66,8 @@ public class GeneralActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-            }
+
+    }
 
     @Override
     public void onBackPressed() {
