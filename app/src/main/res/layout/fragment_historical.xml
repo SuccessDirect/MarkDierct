@@ -1,0 +1,18 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.direct.success.markdirect.fragments.HistoricalFragment">
+
+    <ScrollView
+        android:id="@+id/fragment_historical___scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/fragment_historical___text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="holaaaaaaaaaaaa añlsdkfjalksd fklajsdlfk alsdkfj ñlaskdj alksdjflaskdj flaskdjf alskdfjalskdjf"/>
+    </ScrollView>
+
+</FrameLayout>

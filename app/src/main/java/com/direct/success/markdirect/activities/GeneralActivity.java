@@ -11,10 +11,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.direct.success.markdirect.R;
+import com.direct.success.markdirect.fragments.HistoricalFragment;
 import com.direct.success.markdirect.fragments.OfertasListFragment;
 import com.direct.success.markdirect.model.Bacon;
 import com.direct.success.markdirect.utils.Notifications;
@@ -101,7 +101,7 @@ public class GeneralActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+/*ELIMINAR ESTO Y EL MENU GENERAL!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -122,7 +122,7 @@ public class GeneralActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -130,19 +130,37 @@ public class GeneralActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.general) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        } else if (id == R.id.nav_slideshow) {
+            Fragment fragment = new OfertasListFragment();
 
-        } else if (id == R.id.nav_manage) {
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        } else if (id == R.id.proximidad) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        } else if (id == R.id.nav_share) {
+            Fragment fragment = new OfertasListFragment();
 
-        } else if (id == R.id.nav_send) {
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        } else if (id == R.id.ajustes) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        }*/
+            Fragment fragment = new OfertasListFragment();
+
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        } else if (id == R.id.about_us) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            Fragment fragment = new OfertasListFragment();
+
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        } else if (id == R.id.trazabilidad) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            Fragment fragment = new HistoricalFragment();
+
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
