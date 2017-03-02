@@ -18,6 +18,7 @@ import com.direct.success.markdirect.fragments.HistoricalFragment;
 import com.direct.success.markdirect.fragments.LogOutFragment;
 import com.direct.success.markdirect.fragments.OfertasListFragment;
 import com.direct.success.markdirect.fragments.ProximityFragment;
+import com.direct.success.markdirect.fragments.SettingsFragment;
 import com.direct.success.markdirect.model.Bacon;
 import com.direct.success.markdirect.utils.Notifications;
 
@@ -147,7 +148,7 @@ public class GeneralActivity extends AppCompatActivity
         } else if (id == R.id.ajustes) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
-            Fragment fragment = new OfertasListFragment();
+            Fragment fragment = new SettingsFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
         } else if (id == R.id.about_us) {

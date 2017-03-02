@@ -25,8 +25,7 @@ public class OfertasApiManager {
     public void setListener(OfertasApiManagerNewOfertasListener listener) {
         this.listener = listener;
     }
-    private static final String BASEURL="https://demo8112147.mockable.io";
-
+    private static final String BASEURL="http://demo6104603.mockable.io";
     public void newOferta(Context context){
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest request = new StringRequest(BASEURL, new Response.Listener<String>() {
