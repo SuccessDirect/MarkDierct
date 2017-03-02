@@ -46,7 +46,7 @@ public class GeneralActivity extends AppCompatActivity
     OfertasListFragment ofertasListFragment;
 
     private static final String TAG = "BeaconsEverywhere";
-    private static final long MILLISECONDS_IN_A_DAY = 86400000;
+    private static final long MILLISECONDS_IN_A_DAY = 60000;//86400000;
     private BeaconManager beaconManager;
     private Bacon bacon = new Bacon();
 

@@ -3,11 +3,12 @@ package com.direct.success.markdirect.model;
 import java.util.Date;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Bacon extends RealmObject {
     private Date date;
     private int major;
-    private int minor;
+    @PrimaryKey private int minor;
     private String UUID;
 
 
