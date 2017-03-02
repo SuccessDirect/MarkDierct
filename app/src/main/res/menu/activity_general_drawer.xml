@@ -23,6 +23,10 @@
             android:id="@+id/trazabilidad"
             android:icon="@android:drawable/ic_menu_mylocation"
             android:title="Historico"/>
+        <item
+            android:id="@+id/log_out"
+            android:icon="@android:drawable/ic_menu_mylocation"
+            android:title="Log Out"/>
     </group>
 
 

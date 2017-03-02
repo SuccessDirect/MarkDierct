@@ -1,6 +1,8 @@
 package com.direct.success.markdirect.activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -31,6 +33,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences prefs =
+                getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        String token = prefs.getString("Token", null);
+
+        if (token!=null){
+            Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
+            startActivity(i);
+
+        }
+
         callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
@@ -51,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("Cancelado", "ouchhhhh");
             }
 
+
             @Override
             public void onError(FacebookException error) {
                 Log.d("Error", "errorrrrrr");
@@ -66,7 +79,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(LoginResult loginResult) {
                 Log.d("", "success");
                 Log.d("tokeeeeeeen", loginResult.getAccessToken().getToken().toString());
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
 
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("Token", loginResult.getAccessToken().getToken().toString());
+                editor.commit();
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -91,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             }
                         });
+
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id,name,email,gender,birthday");
                 request.setParameters(parameters);

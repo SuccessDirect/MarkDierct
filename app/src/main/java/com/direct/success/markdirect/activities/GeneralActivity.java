@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 import com.direct.success.markdirect.R;
 import com.direct.success.markdirect.fragments.HistoricalFragment;
+import com.direct.success.markdirect.fragments.LogOutFragment;
 import com.direct.success.markdirect.fragments.OfertasListFragment;
 import com.direct.success.markdirect.model.Bacon;
 import com.direct.success.markdirect.utils.Notifications;
@@ -158,6 +159,12 @@ public class GeneralActivity extends AppCompatActivity
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new HistoricalFragment();
+
+            fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        }else if (id == R.id.log_out) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            Fragment fragment = new LogOutFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
         }
