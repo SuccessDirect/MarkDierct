@@ -39,9 +39,9 @@ private Switch bluetoothSwitchButton;
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
-                    //Cuando este activo
+                    //Cuando este activo y pulso las desactivo
                 }else{
-                    //Cuando este apagado
+                    //Cuando este apagado y pulso las activo
                 }
             }
         });
@@ -49,12 +49,13 @@ private Switch bluetoothSwitchButton;
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked){
+                    //si el bluetooth esta apagado y pulso lo enciendo
                     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                     if (!mBluetoothAdapter.isEnabled()) {
                         mBluetoothAdapter.enable();
                     }
                 }else{
-                    //Cuando este apagado
+                    //si el bluetooth esta encendido y pulso lo apago
                     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                     if (mBluetoothAdapter.isEnabled()) {
                         mBluetoothAdapter.disable();
