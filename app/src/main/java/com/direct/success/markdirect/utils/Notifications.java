@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
@@ -35,6 +36,13 @@ public class Notifications {
                 .setContentIntent(pendingIntent)
                 .build();
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-        notificationManagerCompat.notify(identificator, notification);
+        SharedPreferences prefs = context.getSharedPreferences("Preferences",Context.MODE_PRIVATE);
+        if(prefs.getBoolean("Notification",true))
+        {
+            notificationManagerCompat.notify(identificator, notification);
+        }else{
+            //no tengo que hacer nada, no mando notificación
+        }
+
     }
 }

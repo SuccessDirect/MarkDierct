@@ -58,7 +58,7 @@ public class SettingsFragment extends Fragment {
                             getContext().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
 
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("Notification",false);
+                    editor.putBoolean("Notification",true);
                     editor.commit();
 
                 }else{
@@ -67,7 +67,7 @@ public class SettingsFragment extends Fragment {
                             getContext().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
 
                     SharedPreferences.Editor editor = prefs.edit();
-                    editor.putBoolean("Notification",true);
+                    editor.putBoolean("Notification",false);
                     editor.commit();
                 }
             }
