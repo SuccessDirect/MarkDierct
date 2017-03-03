@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,8 @@ import com.direct.success.markdirect.utils.Notifications;
 import io.realm.Realm;
 
 public class SettingsFragment extends Fragment {
-    private Switch notificationSwitchButton;
-    private Switch bluetoothSwitchButton;
+    private SwitchCompat notificationSwitchButton;
+    private SwitchCompat bluetoothSwitchButton;
     private Notifications notification;
 
     public SettingsFragment() {
@@ -33,8 +34,8 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        notificationSwitchButton = (Switch) view.findViewById(R.id.fragment_settings___switch_notification_button);
-        bluetoothSwitchButton = (Switch) view.findViewById(R.id.fragment_settings___switch_bluetooth_button);
+        notificationSwitchButton = (SwitchCompat) view.findViewById(R.id.fragment_settings___switch_notification_button);
+        bluetoothSwitchButton = (SwitchCompat) view.findViewById(R.id.fragment_settings___switch_bluetooth_button);
         //Para que el botón se inicialice al estado del bluetooth del movil en ese momento.
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         if (mBluetoothAdapter.isEnabled()) {
