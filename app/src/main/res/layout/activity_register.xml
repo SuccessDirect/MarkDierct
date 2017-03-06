@@ -18,6 +18,7 @@
         >
 
         <EditText
+            android:id="@+id/activity_register___email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Correo Electrónico"
@@ -26,6 +27,7 @@
             android:singleLine="true"
             android:imeOptions="actionNext"/>
         <EditText
+            android:id="@+id/activity_register___password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Contraseña"
@@ -34,6 +36,7 @@
             android:singleLine="true"
             android:imeOptions="actionNext"/>
         <EditText
+            android:id="@+id/activity_register___password_repeat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Repetir Contraseña"
@@ -50,6 +53,7 @@
             android:imeOptions="actionNext"/>
 
         <EditText
+            android:id="@+id/activity_register___age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -59,6 +63,7 @@
             android:maxLength="2"
             />
         <Button
+            android:id="@+id/activity_register___registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrarse"/>
