@@ -25,10 +25,25 @@ public class OfertasApiManager {
     public void setListener(OfertasApiManagerNewOfertasListener listener) {
         this.listener = listener;
     }
-    private static final String BASEURL="http://demo6104603.mockable.io";
-    public void newOferta(Context context){
+    //private static final String BASEURL="http://demo6104603.mockable.io";
+    private static final String BASEURL="https://direccionserver.com/api/offers";
+    private static final String SEX ="?_sex=";
+    private static final String AGE ="?_age=";
+    private static final String MINOR ="?_minor=";
+    private static final String MAJOR ="?_major=";
+        //sexo h o m que cuando pinche en la notificacion me lleve a la pestaña proximidad
+    public void newOferta(Context context, String sex, int age, int major, int minor){
+        String FINALURL;
+        if(major ==0 && minor == 0){
+            //FINALURL = BASEURL + SEX + sex + AGE + age + MAJOR + "" + MINOR + "";
+            FINALURL = "https://demo6554310.mockable.io";
+        }else{
+            //FINALURL=BASEURL + SEX + sex + AGE + age + MAJOR + major + MINOR + minor;
+            FINALURL="http://demo1914792.mockable.io";
+        }
+        Log.d("URL",FINALURL);
         RequestQueue queue = Volley.newRequestQueue(context);
-        StringRequest request = new StringRequest(BASEURL, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(FINALURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Log.d("JSON", response);

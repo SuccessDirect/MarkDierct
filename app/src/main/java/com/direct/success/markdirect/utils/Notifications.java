@@ -24,8 +24,10 @@ public class Notifications {
         this.activo = activo;
     }
 
-    public static void postNotification(Context context, Class<? extends Activity> activity, String titulo, String texto, int icono, int color, int identificator) {
+    public static void postNotification(Context context, Class<? extends Activity> activity, String titulo, String texto, int icono, int color, int identificator, int major, int minor) {
         Intent i = new Intent(context, activity);
+        i.putExtra("MAJOR", major);
+        i.putExtra("MINOR", minor);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 5, i, 0);
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentTitle(titulo)
