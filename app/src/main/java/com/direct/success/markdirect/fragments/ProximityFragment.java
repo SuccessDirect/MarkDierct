@@ -1,6 +1,8 @@
 package com.direct.success.markdirect.fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -42,7 +44,12 @@ public class ProximityFragment extends Fragment {
                 refresh();
             }
         });
-        ofertasApiManager.newOferta(getContext());
+        //SharedPreferences prefs = getContext().getSharedPreferences("PERSONALDATA", Context.MODE_PRIVATE);
+        //int age = prefs.getInt("AGE", 0);
+        //String sex = prefs.getString("SEX", "-");
+        //TODO: como guardar el major y el minor que hay que poner aquí
+        //ofertasApiManager.newOferta(getContext(), sex, age,0,0);
+        ofertasApiManager.newOferta(getContext(), "h", 20,4,34911);
 
         return view;
     }

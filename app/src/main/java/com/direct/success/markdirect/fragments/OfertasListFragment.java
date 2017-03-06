@@ -1,6 +1,8 @@
 package com.direct.success.markdirect.fragments;
 
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,6 +22,8 @@ import java.util.List;
 
 public class OfertasListFragment extends Fragment {
 
+    private static final int WITHOUTMAJOR = 0;
+    private static final int WITHOUTMINOR = 0;
     private RecyclerView recyclerOfertasView;
 
     private List<Oferta> listOfOfertas;
@@ -45,8 +49,13 @@ public class OfertasListFragment extends Fragment {
                 refresh();
             }
         });
+        //SharedPreferences prefs = getContext().getSharedPreferences("PERSONALDATA", Context.MODE_PRIVATE);
+        //int age = prefs.getInt("AGE", 0);
+        //String sex = prefs.getString("SEX", "-");
+        //ofertasApiManager.newOferta(getContext(), sex, age, WITHOUTMAJOR, WITHOUTMINOR);
+        ofertasApiManager.newOferta(getContext(), "h", 20, WITHOUTMAJOR, WITHOUTMINOR);
 
-        ofertasApiManager.newOferta(getContext());
+
         // recyclerOfertasView.setLayoutManager(new LinearLayoutManager(getContext()));
         return view;
     }
