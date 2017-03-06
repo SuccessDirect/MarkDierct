@@ -15,14 +15,23 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/imagotipo_xs"
+            />
 
     <TextView
         android:id="@+id/activity_login___text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Usuario"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        />
     <EditText
         android:id="@+id/activity_login___user"
         android:layout_width="match_parent"
