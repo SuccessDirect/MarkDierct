@@ -69,9 +69,6 @@ public class GeneralActivity extends AppCompatActivity
         beaconManager.bind(this);
 
 
-
-
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

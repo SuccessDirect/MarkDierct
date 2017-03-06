@@ -4,28 +4,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/general"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="General" />
+            android:icon="@mipmap/ofertas_generales"
+            android:title="Ofertas Generales" />
         <item
             android:id="@+id/proximidad"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Proximidad" />
+            android:icon="@mipmap/cerca_de_ti"
+            android:title="Cerca de Ti" />
         <item
             android:id="@+id/ajustes"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_manage"
             android:title="Ajustes" />
 
         <item
             android:id="@+id/about_us"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@mipmap/about_us"
             android:title="About Us" />
         <item
             android:id="@+id/trazabilidad"
-            android:icon="@android:drawable/ic_menu_mylocation"
+            android:icon="@mipmap/historico"
             android:title="Historico"/>
         <item
             android:id="@+id/log_out"
-            android:icon="@android:drawable/ic_menu_mylocation"
+            android:icon="@mipmap/log_out"
             android:title="Log Out"/>
     </group>
 
