@@ -115,12 +115,18 @@ public class GeneralActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //Intent i = new Intent(GeneralActivity.this, GeneralActivity.class);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        Fragment fragment = new OfertasListFragment();
+
+        fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-        }
+            finish();
+        }*/
     }
 
 
