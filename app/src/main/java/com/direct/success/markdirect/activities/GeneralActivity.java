@@ -1,5 +1,6 @@
 package com.direct.success.markdirect.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.design.widget.NavigationView;
@@ -55,11 +56,28 @@ public class GeneralActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        try{
+            Intent intent = getIntent();
+            int major = intent.getIntExtra("MAJOR",-1);
+            int minor = intent.getIntExtra("MINOR",-1);
+            if( major != -1 && minor != -1)
+            {
+                FragmentManager fragmentManager = getSupportFragmentManager();
 
-        Fragment fragment = new OfertasListFragment();
+                Fragment fragment = new ProximityFragment();
 
-        fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            }
+            else{
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                Fragment fragment = new OfertasListFragment();
+
+                fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            }
+        }catch (Exception e){
+            Log.d("Intent","Inicio general, no vengo de una notificación.");
+        }
 
         beaconManager = BeaconManager.getInstanceForApplication(this);
 

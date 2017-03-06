@@ -28,7 +28,7 @@ public class Notifications {
         Intent i = new Intent(context, activity);
         i.putExtra("MAJOR", major);
         i.putExtra("MINOR", minor);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 5, i, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 5, i, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new NotificationCompat.Builder(context)
                 .setContentTitle(titulo)
                 .setContentText(texto)
