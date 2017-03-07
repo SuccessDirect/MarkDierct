@@ -64,7 +64,9 @@ public class GeneralActivity extends AppCompatActivity
             {
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
-                Fragment fragment = new ProximityFragment();
+                ProximityFragment fragment = new ProximityFragment();
+                fragment.setMajor(major);
+                fragment.setMinor(minor);
 
                 fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
             }
