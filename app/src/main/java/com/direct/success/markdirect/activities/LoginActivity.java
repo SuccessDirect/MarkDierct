@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     private LoginButton loginButton;
     private CallbackManager callbackManager;
     private Button registerButton;
+    private Button enterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +53,34 @@ public class LoginActivity extends AppCompatActivity {
 
         registerButton = (Button) findViewById(R.id.activity_login___registerButton);
 
+        enterButton = (Button) findViewById(R.id.enter_button);
+
         callbackManager = CallbackManager.Factory.create();
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
 
         loginButton.setReadPermissions(Arrays.asList(
                 "public_profile", "email", "user_birthday", "user_friends"));
+
+        enterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //consulta a la api
+
+                String token ="";
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("Token", token);
+                editor.putString("Tipo", "MANUAL");
+                editor.commit();
+
+                Intent intent = new Intent(LoginActivity.this, GeneralActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        /*loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d("Conectado",loginResult.getAccessToken().getUserId());
@@ -87,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("Error", "errorrrrrr");
 
             }
-        });
+        });*/
 
 
 
@@ -102,6 +124,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("Token", loginResult.getAccessToken().getToken().toString());
+                editor.putString("Tipo", "FACEBOOK");
                 editor.commit();
                 GraphRequest request = GraphRequest.newMeRequest(
                         loginResult.getAccessToken(),
