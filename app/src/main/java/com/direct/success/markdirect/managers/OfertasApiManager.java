@@ -27,15 +27,16 @@ public class OfertasApiManager {
     }
 
     //private static final String BASEURL="http://demo6104603.mockable.io";
-    private static final String BASEURL="https://direccionserver.com/api/offers";
-    private static final String SEX ="?_sex=";
-    private static final String AGE ="?_age=";
-    private static final String MINOR ="?_minor=";
-    private static final String MAJOR ="?_major=";
+    //private static final String BASEURL="https://direccionserver.com/api/offers";
+    private static final String BASEURL="http://192.168.0.126:8080/markdirect/getPromos";
+    private static final String SEX ="?sex=";
+    private static final String AGE ="&?age=";
+    private static final String MINOR ="&?minor=";
+    private static final String MAJOR ="&?major=";
         //sexo h o m que cuando pinche en la notificacion me lleve a la pestaña proximidad
     public void newOferta(Context context, String sex, int age, int major, int minor){
         String FINALURL;
-        if(major ==0 && minor == 0){
+        if(major == -1 && minor == -1){
             //FINALURL = BASEURL + SEX + sex + AGE + age + MAJOR + "" + MINOR + "";
             FINALURL = "https://demo6554310.mockable.io";
         }else{

@@ -53,7 +53,7 @@ public class ProximityFragment extends Fragment {
         //String sex = prefs.getString("SEX", "-");
         //TODO: como guardar el major y el minor que hay que poner aquí
         //ofertasApiManager.newOferta(getContext(), sex, age,0,0);
-        ofertasApiManager.newOferta(getContext(), "h", 20,4,34911);
+        ofertasApiManager.newOferta(getContext(), "m", 25,-1,-1);
 
         return view;
     }

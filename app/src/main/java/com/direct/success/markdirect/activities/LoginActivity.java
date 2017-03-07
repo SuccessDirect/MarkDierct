@@ -153,11 +153,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
-
-            Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
-            i.putExtra("id",id);
-            startActivity(i);
-
+            if(resultCode==-1)
+            {
+                Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
+                i.putExtra("id",id);
+                startActivity(i);
+            }
 
     }
 }
