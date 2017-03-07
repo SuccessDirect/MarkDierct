@@ -57,9 +57,9 @@ public class RegisterUserAPI {
                 Map<String,String> params = new HashMap<String, String>();
                 //params.put("Content-Type","application/json");
                 params.put("email", email);
-                params.put("email", password);
-                params.put("email", age);
-                params.put("email", sex);
+                params.put("password", password);
+                params.put("age", age);
+                params.put("sex", sex);
                 return params;
             }
         };
