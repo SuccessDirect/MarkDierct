@@ -39,9 +39,7 @@
                     android:id="@+id/row_offers___offer_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.8"
                     android:textStyle="bold"
-                    android:gravity="left"
                     android:textSize="16sp"
                     android:layout_below="@id/row_offers___offer_image"
                     android:layout_marginTop="10dp"
@@ -50,21 +48,22 @@
                 <TextView
                     android:text="Fecha"
                     android:id="@+id/row_offers___offer_fecha"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/row_offers___offer_text"
                     android:textStyle="bold"
-                    android:gravity="left"
                     android:textSize="16sp"
                     android:layout_below="@id/row_offers___offer_image"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="100dp"
+                    android:paddingRight="10dp"
+                    android:gravity="right"
                     />
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_below="@id/row_offers___offer_text"
                     android:background="#000000"
+                    android:elevation="15dp"
                     ></FrameLayout>
             <TextView
                 android:text="Desc"
@@ -81,6 +80,7 @@
 
 
             </RelativeLayout>
+
             <ImageView
                 android:layout_margin="4dp"
                 android:padding="4dp"
