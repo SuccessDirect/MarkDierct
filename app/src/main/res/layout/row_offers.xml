@@ -29,7 +29,7 @@
                     android:id="@+id/row_offers___offer_image"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:background="#213465"
+                    android:background="#ffffff"
                     android:scaleType="fitXY"
                     android:layout_alignParentTop="true"
                     />
