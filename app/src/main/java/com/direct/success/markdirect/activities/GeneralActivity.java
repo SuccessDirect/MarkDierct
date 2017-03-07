@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.direct.success.markdirect.R;
+import com.direct.success.markdirect.fragments.AboutUsFragment;
 import com.direct.success.markdirect.fragments.HistoricalFragment;
 import com.direct.success.markdirect.fragments.LogOutFragment;
 import com.direct.success.markdirect.fragments.OfertasListFragment;
@@ -154,7 +155,7 @@ public class GeneralActivity extends AppCompatActivity
         } else if (id == R.id.about_us) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
-            Fragment fragment = new OfertasListFragment();
+            Fragment fragment = new AboutUsFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
         } else if (id == R.id.trazabilidad) {

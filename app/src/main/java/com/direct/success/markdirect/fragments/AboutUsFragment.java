@@ -30,7 +30,7 @@ public class AboutUsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_about_us, container, false);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("About Us");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Desarrolladores");
 
         return view;
     }

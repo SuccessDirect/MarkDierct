@@ -7,7 +7,7 @@
    <android.support.v7.widget.RecyclerView
        android:id="@+id/fragment_proximity___recycler_view"
        android:layout_width="match_parent"
-       android:background="#9a213465"
+       android:background="#79213465"
        android:layout_height="match_parent">
 
    </android.support.v7.widget.RecyclerView>
