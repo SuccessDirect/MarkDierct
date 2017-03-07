@@ -25,6 +25,7 @@ public class OfertasApiManager {
     public void setListener(OfertasApiManagerNewOfertasListener listener) {
         this.listener = listener;
     }
+
     //private static final String BASEURL="http://demo6104603.mockable.io";
     private static final String BASEURL="https://direccionserver.com/api/offers";
     private static final String SEX ="?_sex=";
@@ -42,6 +43,7 @@ public class OfertasApiManager {
             FINALURL="http://demo1914792.mockable.io";
         }
         Log.d("URL",FINALURL);
+
         RequestQueue queue = Volley.newRequestQueue(context);
         StringRequest request = new StringRequest(FINALURL, new Response.Listener<String>() {
             @Override

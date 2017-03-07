@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class OfertasListFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_ofertas_list, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Ofertas Generales");
 
         recyclerOfertasView = (RecyclerView) view.findViewById(R.id.fragment_ofertas_list___recycler_view);
 

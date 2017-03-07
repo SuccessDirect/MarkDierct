@@ -9,18 +9,6 @@
     tools:context="com.direct.success.markdirect.activities.GeneralActivity"
     tools:showIn="@layout/app_bar_general">
 
-
-   <!-- <android.support.v7.widget.RecyclerView
-        android:id="@+id/ofertas_list_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>-->
-
-
-
-
-
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ofertas_list_recyclerView"
         android:layout_width="match_parent"

@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,8 @@ public class ProximityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_proximity, container, false);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Cerca de Ti");
 
         recyclerProximityOfertasView = (RecyclerView) view.findViewById(R.id.fragment_proximity___recycler_view);
         OfertasApiManager ofertasApiManager = new OfertasApiManager();
