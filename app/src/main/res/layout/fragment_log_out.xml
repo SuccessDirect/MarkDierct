@@ -6,11 +6,21 @@
 
     <!-- TODO: Update blank fragment layout -->
     <com.facebook.login.widget.LoginButton
-        android:id="@+id/loo_out_login_button_"
+        android:id="@+id/log_out_login_button_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         />
-
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFC91616"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Salir"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"/>
 
 </FrameLayout>
