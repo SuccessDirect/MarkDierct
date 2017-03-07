@@ -22,6 +22,9 @@ import java.util.List;
 
 
 public class ProximityFragment extends Fragment {
+    private int major;
+    private int minor;
+
 
     private RecyclerView recyclerProximityOfertasView;
 
@@ -73,5 +76,21 @@ public class ProximityFragment extends Fragment {
 
     public void setListOfProximityOfertas(List<Oferta> listOfProximityOfertas) {
         this.listOfProximityOfertas = listOfProximityOfertas;
+    }
+
+    public int getMajor() {
+        return major;
+    }
+
+    public void setMajor(int major) {
+        this.major = major;
+    }
+
+    public int getMinor() {
+        return minor;
+    }
+
+    public void setMinor(int minor) {
+        this.minor = minor;
     }
 }

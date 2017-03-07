@@ -33,7 +33,6 @@ public class RegisterUserAPI {
 
     //TODO poner URL;
     private static final String BASEURL="";
-    String URL = BASEURL;
     public void sendPost(Context context, String mail, String pass, int age1, String sex1){
         String URL = BASEURL;
         final String email = mail;
