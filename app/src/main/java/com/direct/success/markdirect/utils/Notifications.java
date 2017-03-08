@@ -24,7 +24,7 @@ public class Notifications {
         this.activo = activo;
     }
 
-    public static void postNotification(Context context, Class<? extends Activity> activity, String titulo, String texto, int icono, int color, int identificator, int major, int minor) {
+    public static void postNotification(Context context, Class<? extends Activity> activity, String titulo, String texto, int icono, int identificator, int major, int minor) {
         Intent i = new Intent(context, activity);
         i.putExtra("MAJOR", major);
         i.putExtra("MINOR", minor);
@@ -34,7 +34,6 @@ public class Notifications {
                 .setContentText(texto)
                 .setSmallIcon(icono)
                 .setAutoCancel(true)
-                .setColor(color)
                 .setContentIntent(pendingIntent)
                 .build();
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
