@@ -1,11 +1,16 @@
 package com.direct.success.markdirect.activities;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -23,6 +28,7 @@ import com.direct.success.markdirect.fragments.ProximityFragment;
 import com.direct.success.markdirect.fragments.SettingsFragment;
 import com.direct.success.markdirect.model.Bacon;
 import com.direct.success.markdirect.utils.Notifications;
+import com.direct.success.markdirect.utils.Utils;
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -39,10 +45,15 @@ import java.util.Date;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static com.direct.success.markdirect.utils.Utils.MessageType.DIALOG;
+import static com.direct.success.markdirect.utils.Utils.MessageType.TOAST;
+
 
 public class GeneralActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, BeaconConsumer {
 
+    private static final int REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION = 10;
     // private List<Oferta> listOfOfertas = new LinkedList<>();
     // private OfertasAdapter adapter;
     OfertasListFragment ofertasListFragment;
@@ -57,6 +68,8 @@ public class GeneralActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_general);
+
+        permission();
 
         try{
             Intent intent = getIntent();
@@ -298,5 +311,53 @@ public class GeneralActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        if (requestCode == REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION) {
+            if (ContextCompat.checkSelfPermission(this,
+                    ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                String msg = getString(R.string.permission_granted);
+                Utils.showMessage(this, msg, TOAST, null);
+            }
+            else {
+                String title = getString(R.string.permission_denied_location_title);
+                String msg = getString(R.string.permission_denied_location_msg);
+                Utils.showMessage(this, msg, DIALOG, title);
+            }
+        }
+    }
+    void permission(){
+        int isGPSTrackingEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), ACCESS_FINE_LOCATION);
+        int assistedGPSEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION);
+        if (isGPSTrackingEnabled != PackageManager.PERMISSION_GRANTED && assistedGPSEnabled != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+
+            }
+            // If the app has not been granted permission yet, ask the user to grant it
+            // (if he already rejected this in the past, show him a short explanation first)
+            else {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, ACCESS_FINE_LOCATION)) {
+                    String title = getString(R.string.permission_location_rationale_title);
+                    String msg = getString(R.string.permission_location_rationale_msg);
+                    Utils.showAcceptDialog(this, title, msg, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ActivityCompat.requestPermissions(GeneralActivity.this,
+                                    new String[]{ACCESS_FINE_LOCATION},
+                                    REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION
+                            );
+                        }
+                    });
+                }
+                else {
+                    ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION},
+                            REQUEST_CODE_ASK_FOR_LOCATION_PERMISSION
+                    );
+                }
+            }
+
+            return;
+        }
     }
 }
