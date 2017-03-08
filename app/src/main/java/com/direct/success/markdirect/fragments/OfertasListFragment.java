@@ -23,8 +23,8 @@ import java.util.List;
 
 public class OfertasListFragment extends Fragment {
 
-    private static final int WITHOUTMAJOR = 0;
-    private static final int WITHOUTMINOR = 0;
+    private static final int WITHOUTMAJOR = -1;
+    private static final int WITHOUTMINOR = -1;
     private RecyclerView recyclerOfertasView;
 
     private List<Oferta> listOfOfertas;
@@ -51,11 +51,8 @@ public class OfertasListFragment extends Fragment {
                 refresh();
             }
         });
-        //SharedPreferences prefs = getContext().getSharedPreferences("PERSONALDATA", Context.MODE_PRIVATE);
-        //int age = prefs.getInt("AGE", 0);
-        //String sex = prefs.getString("SEX", "-");
-        //ofertasApiManager.newOferta(getContext(), sex, age, WITHOUTMAJOR, WITHOUTMINOR);
-        ofertasApiManager.newOferta(getContext(), "h", 20, WITHOUTMAJOR, WITHOUTMINOR);
+
+        ofertasApiManager.newOferta(getContext(), WITHOUTMAJOR, WITHOUTMINOR);
 
 
         // recyclerOfertasView.setLayoutManager(new LinearLayoutManager(getContext()));

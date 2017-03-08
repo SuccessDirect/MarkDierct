@@ -51,12 +51,8 @@ public class ProximityFragment extends Fragment {
                 refresh();
             }
         });
-        //SharedPreferences prefs = getContext().getSharedPreferences("PERSONALDATA", Context.MODE_PRIVATE);
-        //int age = prefs.getInt("AGE", 0);
-        //String sex = prefs.getString("SEX", "-");
-        //TODO: como guardar el major y el minor que hay que poner aquí
-        //ofertasApiManager.newOferta(getContext(), sex, age,0,0);
-        ofertasApiManager.newOferta(getContext(), "m", 25,-1,-1);
+
+        ofertasApiManager.newOferta(getContext(), this.getMajor() ,this.getMinor());
 
         return view;
     }
