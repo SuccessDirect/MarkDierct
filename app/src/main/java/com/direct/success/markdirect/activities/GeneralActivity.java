@@ -242,7 +242,7 @@ public class GeneralActivity extends AppCompatActivity
                             long millisecondsPassed = new Date().getTime() - time;
                             if (millisecondsPassed > MILLISECONDS_IN_A_DAY) {//Sí ha pasado más de un día desde la última notificación
                                 // si la fecha es más vieja de un día mando notificación y guardo la nueva notificación en la BD(la fecha se ha cambiado)
-                                Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo beacon", "Si ha pasado mas de un día" + bacon.getMinor(),R.drawable.ic_menu_camera, 0xFF00FF00, 889988,bacon.getMajor(), bacon.getMinor());
+                                Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo Oferta", "Oferta disponible" + bacon.getMinor(),R.mipmap.imagotipo_m, 0xFF00FF00, 889988,bacon.getMajor(), bacon.getMinor());
                                 realm.beginTransaction();
                                 realm.copyToRealmOrUpdate(bacon);
                                 realm.commitTransaction();
@@ -253,7 +253,7 @@ public class GeneralActivity extends AppCompatActivity
                             }
                         } else {//Sí el bacon que he visto no esta en la base de datos
                             //mando notificación y añado a realm ese bacon.
-                            Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo beacon", "Si hay algo en la base de datos, pero el bacon no" + bacon.getMinor() ,R.drawable.ic_menu_camera, 0xFF00FF00, 889988, bacon.getMajor(), bacon.getMinor());
+                            Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo beacon", "Si hay algo en la base de datos, pero el bacon no" + bacon.getMinor() ,R.mipmap.imagotipo_m, 0xFF00FF00, 889988, bacon.getMajor(), bacon.getMinor());
                             realm.beginTransaction();
                             realm.copyToRealm(bacon);
                             realm.commitTransaction();
@@ -261,7 +261,7 @@ public class GeneralActivity extends AppCompatActivity
                         }
 
                     }else{//sí la base de datos no tiene nada
-                        Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo beacon", "No esta en la base de datos" + bacon.getMinor(), R.drawable.ic_menu_camera, 0xFF00FF00, 889988, bacon.getMajor(), bacon.getMinor());
+                        Notifications.postNotification(getBaseContext(), GeneralActivity.class, "Nuevo beacon", "No esta en la base de datos" + bacon.getMinor(), R.mipmap.imagotipo_m, 0xFF00FF00, 889988, bacon.getMajor(), bacon.getMinor());
                         realm.beginTransaction();
                         realm.copyToRealm(bacon);
                         realm.commitTransaction();
