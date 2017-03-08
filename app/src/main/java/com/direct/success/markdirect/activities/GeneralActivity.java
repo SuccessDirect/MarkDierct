@@ -123,12 +123,14 @@ public class GeneralActivity extends AppCompatActivity
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }else {
+
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new OfertasListFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general, fragment).commit();
             principal = true;
+
         }
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
