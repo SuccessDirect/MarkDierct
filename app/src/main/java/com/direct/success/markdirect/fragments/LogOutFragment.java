@@ -61,7 +61,7 @@ public class LogOutFragment extends Fragment {
                 editor.putString("Token", null);
                 editor.putString("Tipo", null);
                 editor.commit();
-                LoginManager.getInstance().logOut();
+                getActivity().finish();
                 Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
             }
@@ -77,8 +77,10 @@ public class LogOutFragment extends Fragment {
 
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putString("Token", null);
+                editor.putString("Tipo", null);
                 editor.commit();
                 LoginManager.getInstance().logOut();
+                getActivity().finish();
                 Intent i = new Intent(getContext(), LoginActivity.class);
                 startActivity(i);
 

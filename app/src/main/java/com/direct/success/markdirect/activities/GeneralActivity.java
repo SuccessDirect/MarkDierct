@@ -46,6 +46,7 @@ public class GeneralActivity extends AppCompatActivity
     // private List<Oferta> listOfOfertas = new LinkedList<>();
     // private OfertasAdapter adapter;
     OfertasListFragment ofertasListFragment;
+    private boolean principal = false;
 
     private static final String TAG = "BeaconsEverywhere";
     private static final long MILLISECONDS_IN_A_DAY = 60000;//86400000;
@@ -68,6 +69,7 @@ public class GeneralActivity extends AppCompatActivity
                 Fragment fragment = new ProximityFragment();
 
                 fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+                principal = false;
             }
             else{
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -75,6 +77,7 @@ public class GeneralActivity extends AppCompatActivity
                 Fragment fragment = new OfertasListFragment();
 
                 fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+                principal = true;
             }
         }catch (Exception e){
             Log.d("Intent","Inicio general, no vengo de una notificación.");
@@ -114,11 +117,19 @@ public class GeneralActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         //Intent i = new Intent(GeneralActivity.this, GeneralActivity.class);
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (principal) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }else {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 
-        Fragment fragment = new OfertasListFragment();
+            Fragment fragment = new OfertasListFragment();
 
-        fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_general, fragment).commit();
+            principal = true;
+        }
         /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -140,36 +151,44 @@ public class GeneralActivity extends AppCompatActivity
             Fragment fragment = new OfertasListFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+
+            principal = true;
         } else if (id == R.id.proximidad) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new ProximityFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            principal = false;
+
         } else if (id == R.id.ajustes) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new SettingsFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            principal = false;
         } else if (id == R.id.about_us) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new AboutUsFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            principal = false;
         } else if (id == R.id.trazabilidad) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new HistoricalFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            principal = false;
         }else if (id == R.id.log_out) {
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             Fragment fragment = new LogOutFragment();
 
             fragmentManager.beginTransaction().replace(R.id.content_general,fragment).commit();
+            principal = false;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
