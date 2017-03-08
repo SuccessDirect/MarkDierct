@@ -33,12 +33,13 @@ public class RegisterUserAPI {
 
     //TODO poner URL;
     private static final String BASEURL="";
-    public void sendPost(Context context, String mail, String pass, int age1, String sex1){
+    public void sendPost(Context context, String mail, String pass, String age1, String sex1, String social){
         String URL = BASEURL;
         final String email = mail;
         final String password = pass;
-        final String age = ""+age1;
+        final String age = age1;
         final String sex = sex1;
+        final String socialNetwork = social;
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -59,6 +60,7 @@ public class RegisterUserAPI {
                 params.put("password", password);
                 params.put("age", age);
                 params.put("sex", sex);
+                params.put("socialNetwork", socialNetwork);
                 return params;
             }
         };

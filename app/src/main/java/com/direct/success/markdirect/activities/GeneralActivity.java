@@ -327,7 +327,7 @@ public class GeneralActivity extends AppCompatActivity
             }
         }
     }
-    void permission(){
+    void permission(){//Los permisos de Bluetooth para android 6 o superiores los gestiona como de localización
         int isGPSTrackingEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), ACCESS_FINE_LOCATION);
         int assistedGPSEnabled = ActivityCompat.checkSelfPermission(getBaseContext(), Manifest.permission.ACCESS_COARSE_LOCATION);
         if (isGPSTrackingEnabled != PackageManager.PERMISSION_GRANTED && assistedGPSEnabled != PackageManager.PERMISSION_GRANTED) {

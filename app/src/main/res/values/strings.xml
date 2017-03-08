@@ -22,6 +22,13 @@
     <string name="git_marcos">https://github.com/markinhos3</string>
     <string name="git_elias">https://github.com/eliasmuol/</string>
     <string name="git_antonio">https://github.com/cazallau</string>
+    <string name="permission_granted">Permiso concedido</string>
+    <string name="permission_denied_location_title">Alerta permisos</string>
+    <string name="permission_denied_location_msg">Permisos denegados</string>
+    <string name="defaultProgressTitle">defaultProgressTitulo</string>
+    <string name="permission_location_rationale_title">No dispone de permisos</string>
+    <string name="permission_location_rationale_msg">Necesita conceder permisos a la aplicación</string>
+
 
 
 </resources>

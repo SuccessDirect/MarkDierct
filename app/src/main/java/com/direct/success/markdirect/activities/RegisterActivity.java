@@ -1,5 +1,8 @@
 package com.direct.success.markdirect.activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.direct.success.markdirect.R;
+import com.direct.success.markdirect.managers.RegisterUserAPI;
 
 public class RegisterActivity extends AppCompatActivity {
     private Spinner cmbOpciones;
@@ -20,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText repeatPassword;
     private EditText age;
     private Button registerButton;
+    private String sexo;
 
 
 
@@ -43,12 +48,29 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton = (Button) findViewById(R.id.activity_register___registerButton);
         cmbOpciones = (Spinner)findViewById(R.id.CmbOpciones);
 
+
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (password.getText().toString() != repeatPassword.getText().toString()) {
                     //// TODO: arreglar esto
                     Snackbar.make(registerButton, "Las contraseñas no son iguales", Snackbar.LENGTH_LONG).show();
+                    RegisterUserAPI registerUserAPI = new RegisterUserAPI();
+                    registerUserAPI.sendPost(getBaseContext(), email.getText().toString(), password.getText().toString(),age.getText().toString(),sexo, "MANUAL");
+                    registerUserAPI.setListener(new RegisterUserAPI.RegisterUserAPINewTokenListener() {
+                        @Override
+                        public void onNewToken(String token) {
+                            SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putString("Token", token);
+                            editor.putString("Tipo", "MANUAL");
+                            editor.commit();
+                            Intent i = new Intent(RegisterActivity.this, GeneralActivity.class);
+                            startActivity(i);
+
+                        }
+                    });
                 }
             }
         });
@@ -64,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
                                                android.view.View v, int position, long id) {
                         //lblMensaje.setText("Seleccionado: " +
                           //      parent.getItemAtPosition(position));
+                        sexo=parent.getItemAtPosition(position).toString();
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
