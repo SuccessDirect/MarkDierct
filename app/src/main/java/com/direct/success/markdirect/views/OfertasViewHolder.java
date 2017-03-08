@@ -33,7 +33,7 @@ public class OfertasViewHolder extends RecyclerView.ViewHolder {
         this.oferta = oferta;
         titulo.setText(oferta.getTittle());
         descripcion.setText(oferta.getDescription());
-        fecha.setText(oferta.getDate());
+        fecha.setText(oferta.converTimeStampToDate(oferta.getDate()));
         //fecha.setText(oferta.getDate().toString());
         Picasso.with(itemView.getContext()).load(oferta.getImageUrl()).into(imagen);
     }

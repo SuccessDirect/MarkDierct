@@ -1,14 +1,17 @@
 package com.direct.success.markdirect.model;
 
+import android.text.format.DateFormat;
+import android.text.style.LocaleSpan;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class Oferta {
     @SerializedName("titulo") private String tittle;
-    //Esto esta puesto temporalmente, en el momento que el backend devuelva la fecha en formato data, se quita.
-    //@SerializedName("validez") private Date date;
-    @SerializedName("validez") private String date;
+    @SerializedName("validez") private long date;
     @SerializedName("oferta") private String description;
     @SerializedName("imagen") private String imageUrl;
 
@@ -20,22 +23,14 @@ public class Oferta {
         this.tittle = tittle;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
-   /* public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-*/
     public String getDescription() {
         return description;
     }
@@ -50,5 +45,14 @@ public class Oferta {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String converTimeStampToDate(long time){
+
+        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
+        cal.setTimeInMillis(time*1000);
+        String date = DateFormat.format("D-mmmm",cal).toString();
+
+        return date;
     }
 }
