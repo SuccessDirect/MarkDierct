@@ -12,5 +12,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="facebook_app_id">486473578409917</string>
+    <string name="permission_granted">Permiso concedido</string>
+    <string name="permission_denied_location_title">Alerta permisos</string>
+    <string name="permission_denied_location_msg">Permisos denegados</string>
+    <string name="defaultProgressTitle">defaultProgressTitulo</string>
+    <string name="permission_location_rationale_title">No dispone de permisos</string>
+    <string name="permission_location_rationale_msg">Necesita conceder permisos a la aplicación</string>
 
 </resources>
