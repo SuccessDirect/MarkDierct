@@ -86,7 +86,12 @@ public class RegisterActivity extends AppCompatActivity {
                                                android.view.View v, int position, long id) {
                         //lblMensaje.setText("Seleccionado: " +
                           //      parent.getItemAtPosition(position));
-                        sexo=parent.getItemAtPosition(position).toString();
+                        if(parent.getItemAtPosition(position).toString().equals("Hombre")){
+                            sexo="H";
+                        }else if(parent.getItemAtPosition(position).toString().equals("Mujer")){
+                            sexo="M";
+                        }
+
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
