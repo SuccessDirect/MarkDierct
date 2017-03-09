@@ -24,6 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 import static android.R.attr.id;
 
@@ -189,6 +191,24 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
             if(resultCode==-1)
             {
+                Date dateOfBirth = new Date(birthday);
+                int age = 0;
+                Calendar born = Calendar.getInstance();
+                Calendar now = Calendar.getInstance();
+                if(dateOfBirth!= null) {
+                    now.setTime(new Date());
+                    born.setTime(dateOfBirth);
+                    if(born.after(now)) {
+                        throw new IllegalArgumentException("Can't be born in the future");
+                    }
+                    age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
+                    if(now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR))  {
+                        age-=1;
+                    }
+                }
+                birthday=""+age;
+                Log.d("birthday",birthday);
+
                 RegisterUserAPI registerUserAPI = new RegisterUserAPI();
                 registerUserAPI.sendPost(getBaseContext(), email, "",birthday,gender, "FACEBOOK");
                 registerUserAPI.setListener(new RegisterUserAPI.RegisterUserAPINewTokenListener() {
