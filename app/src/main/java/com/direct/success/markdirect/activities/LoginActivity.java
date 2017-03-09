@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.direct.success.markdirect.R;
+import com.direct.success.markdirect.managers.RegisterUserAPI;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -31,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     private CallbackManager callbackManager;
     private Button registerButton;
     private Button enterButton;
+    private String email;
+    private String birthday;
+    private String gender;
+    private String tokenFacebook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +122,7 @@ public class LoginActivity extends AppCompatActivity {
         LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                tokenFacebook = loginResult.getAccessToken().getToken().toString();
                 Log.d("", "success");
                 Log.d("tokeeeeeeen", loginResult.getAccessToken().getToken().toString());
                 SharedPreferences prefs =
@@ -135,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 // Application code
                                 try {
-                                    String email = object.getString("email");
+                                    email = object.getString("email");
                                     Log.d("maillll", email);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -146,7 +152,12 @@ public class LoginActivity extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-
+                                try{
+                                    gender = object.getString("gender");
+                                    Log.d("gender", gender);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
 
                             }
                         });
@@ -178,6 +189,22 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
             if(resultCode==-1)
             {
+                RegisterUserAPI registerUserAPI = new RegisterUserAPI();
+                registerUserAPI.sendPost(getBaseContext(), email, "",birthday,gender, "FACEBOOK");
+                registerUserAPI.setListener(new RegisterUserAPI.RegisterUserAPINewTokenListener() {
+                    @Override
+                    public void onNewToken(String token) {
+                        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString("Token", tokenFacebook);
+                        editor.putString("Tipo", "FACEBOOK");
+                        editor.commit();
+                        Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
+                        startActivity(i);
+
+                    }
+                });
                 Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
                 i.putExtra("id",id);
                 startActivity(i);
