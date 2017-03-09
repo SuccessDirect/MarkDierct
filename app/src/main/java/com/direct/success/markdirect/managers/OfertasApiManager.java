@@ -30,19 +30,20 @@ public class OfertasApiManager {
     //private static final String BASEURL="https://direccionserver.com/api/offers";
     private static final String BASEURL="http://192.168.0.126:8080/markdirect/getPromos";
     private static final String TOKEN ="?token=";
-    private static final String MINOR ="&?minor=";
-    private static final String MAJOR ="&?major=";
+    private static final String MINOR ="&minor=";
+    private static final String MAJOR ="&major=";
     public void newOferta(Context context, int major, int minor, String token){
         String FINALURL;
         if(major == -1 && minor == -1){//son las generales
             //FINALURL = BASEURL + TOKEN + token + MAJOR + "" + MINOR + "";
             //FINALURL = "https://demo6554310.mockable.io";
-            FINALURL = "http://192.168.0.126:8080/markdirect/getGenericPromos";
+            FINALURL = "http://192.168.0.125:8080/markdirect/getPromos" + TOKEN + token + MAJOR + "" + MINOR + "";
 
         }else{
             //FINALURL=BASEURL + TOKEN + token + MAJOR + major + MINOR + minor;
             //FINALURL="http://demo1914792.mockable.io";
             FINALURL = "https://demo6554310.mockable.io";
+            FINALURL = "http://192.168.0.125:8080/markdirect/getPromos" + TOKEN + token + MAJOR + major + MINOR + minor;
         }
         Log.d("URL",FINALURL);
 
