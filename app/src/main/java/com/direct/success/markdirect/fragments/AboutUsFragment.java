@@ -56,7 +56,7 @@ public class AboutUsFragment extends Fragment {
         web_url_marcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.marcosvaldi.com"));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://marcosvaldi.com"));
                 startActivity(viewIntent);
             }
         });
