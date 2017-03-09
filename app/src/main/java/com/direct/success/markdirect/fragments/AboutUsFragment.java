@@ -53,7 +53,7 @@ public class AboutUsFragment extends Fragment {
         github_url_daniel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.git_daniel)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/danielioniceanu"));
                 startActivity(viewIntent);
             }
         });
@@ -62,7 +62,7 @@ public class AboutUsFragment extends Fragment {
         github_url_matias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.git_matias)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/jmajyo"));
                 startActivity(viewIntent);
             }
         });
@@ -71,7 +71,7 @@ public class AboutUsFragment extends Fragment {
         github_url_marcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.git_marcos)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/markinhos3"));
                 startActivity(viewIntent);
             }
         });
@@ -80,7 +80,7 @@ public class AboutUsFragment extends Fragment {
         github_url_elias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.git_elias)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/eliasmuol"));
                 startActivity(viewIntent);
             }
         });
@@ -89,47 +89,44 @@ public class AboutUsFragment extends Fragment {
         github_url_antonio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.git_antonio)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/cazallau"));
                 startActivity(viewIntent);
             }
         });
 
 
-
-
-
         linkedin_url_daniel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.linkedin_daniel)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/danielioniceanu"));
                 startActivity(viewIntent);
 
             }
         }); linkedin_url_matias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.linkedin_matias)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/josematiasalcaidejimenez"));
                 startActivity(viewIntent);
 
             }
         }); linkedin_url_marcos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.linkedin_marcos)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/marcosvaldi"));
                 startActivity(viewIntent);
 
             }
         }); linkedin_url_elias.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.linkedin_elias)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/eliasmuol"));
                 startActivity(viewIntent);
 
             }
         }); linkedin_url_antonio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse(getString(R.string.linkedin_antonio)));
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://www.linkedin.com/in/antonio-jesus-cazalla"));
                 startActivity(viewIntent);
 
             }
