@@ -140,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                try {
+                                try {//TODO:convertir a edad
                                     String birthday = object.getString("birthday"); // 01/31/1980 format
                                     Log.d("cumpleeeee", birthday);
                                 } catch (JSONException e) {
