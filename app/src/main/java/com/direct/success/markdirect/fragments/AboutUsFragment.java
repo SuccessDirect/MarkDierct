@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.direct.success.markdirect.R;
 
@@ -26,6 +27,7 @@ public class AboutUsFragment extends Fragment {
     ImageView github_url_marcos;
     ImageView github_url_elias;
     ImageView github_url_antonio;
+    TextView web_url_marcos;
 
 
     public AboutUsFragment() {
@@ -49,6 +51,15 @@ public class AboutUsFragment extends Fragment {
         github_url_marcos= (ImageView) view.findViewById(R.id.card_view_github_marcos);
         github_url_elias= (ImageView) view.findViewById(R.id.card_view_github_elias);
         github_url_antonio= (ImageView) view.findViewById(R.id.card_view_github_antonio);
+        web_url_marcos = (TextView) view.findViewById(R.id.web_marcos_tarjeta);
+
+        web_url_marcos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("http://marcosvaldi.com"));
+                startActivity(viewIntent);
+            }
+        });
 
         github_url_daniel.setOnClickListener(new View.OnClickListener() {
             @Override
