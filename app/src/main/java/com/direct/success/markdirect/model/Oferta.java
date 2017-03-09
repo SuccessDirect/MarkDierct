@@ -51,7 +51,7 @@ public class Oferta {
 
         Calendar cal = Calendar.getInstance(Locale.ENGLISH);
         cal.setTimeInMillis(time*1000);
-        String date = DateFormat.format("D-mmmm",cal).toString();
+        String date = DateFormat.format("d-MMMM",cal).toString();
 
         return date;
     }
