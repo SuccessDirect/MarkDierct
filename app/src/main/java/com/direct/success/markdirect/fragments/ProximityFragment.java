@@ -4,6 +4,7 @@ package com.direct.success.markdirect.fragments;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -52,7 +53,9 @@ public class ProximityFragment extends Fragment {
             }
         });
 
-        ofertasApiManager.newOferta(getContext(), this.getMajor() ,this.getMinor());
+        SharedPreferences prefs = getActivity().getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        String token = prefs.getString("Token", null);
+        ofertasApiManager.newOferta(getContext(), this.getMajor() ,this.getMinor(), token);
 
         return view;
     }

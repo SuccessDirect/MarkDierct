@@ -51,8 +51,9 @@ public class OfertasListFragment extends Fragment {
                 refresh();
             }
         });
-
-        ofertasApiManager.newOferta(getContext(), WITHOUTMAJOR, WITHOUTMINOR);
+        SharedPreferences prefs = getActivity().getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+        String token = prefs.getString("Token", null);
+        ofertasApiManager.newOferta(getContext(), WITHOUTMAJOR, WITHOUTMINOR , token);
 
 
         // recyclerOfertasView.setLayoutManager(new LinearLayoutManager(getContext()));
