@@ -32,7 +32,7 @@ public class RegisterUserAPI {
     }
 
     //TODO poner URL;
-    private static final String BASEURL="http://192.168.0.129:8080/markdirect/registrarusuario";
+    private static final String BASEURL="http://192.168.32.148:8080/markdirect/registrarusuario";
     public void sendPost(Context context, String mail, String pass, String age1, String sex1, String social){
         String URL = BASEURL;
         final String email = mail;
