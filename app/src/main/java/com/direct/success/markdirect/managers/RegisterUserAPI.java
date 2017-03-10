@@ -32,7 +32,7 @@ public class RegisterUserAPI {
     }
 
     //TODO poner URL;
-    private static final String BASEURL="http://192.168.0.125:8080/markdirect/registrarusuario";
+    private static final String BASEURL="http://192.168.0.129:8080/markdirect/registrarusuario";
     public void sendPost(Context context, String mail, String pass, String age1, String sex1, String social){
         String URL = BASEURL;
         final String email = mail;
@@ -66,6 +66,7 @@ public class RegisterUserAPI {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
+        Log.d("URL",URL);
     }
     private void parseJSON(String response){
         Reader reader= new StringReader(response);

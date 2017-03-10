@@ -158,6 +158,11 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                                 try{
                                     gender = object.getString("gender");
+                                    if (gender.equals("male")){
+                                        gender = "H";
+                                    }else {
+                                        gender = "M";
+                                    }
                                     Log.d("gender", gender);
                                 } catch (JSONException e) {
                                     e.printStackTrace();

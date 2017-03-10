@@ -37,13 +37,13 @@ public class OfertasApiManager {
         if(major == -1 && minor == -1){//son las generales
             //FINALURL = BASEURL + TOKEN + token + MAJOR + "" + MINOR + "";
             //FINALURL = "https://demo6554310.mockable.io";
-            FINALURL = "http://192.168.0.125:8080/markdirect/getPromos" + TOKEN + token + MAJOR + "" + MINOR + "";
+            FINALURL = "http://192.168.0.129:8080/markdirect/getPromos" + TOKEN + token + MAJOR + "" + MINOR + "";
 
         }else{
             //FINALURL=BASEURL + TOKEN + token + MAJOR + major + MINOR + minor;
             //FINALURL="http://demo1914792.mockable.io";
             FINALURL = "https://demo6554310.mockable.io";
-            FINALURL = "http://192.168.0.125:8080/markdirect/getPromos" + TOKEN + token + MAJOR + major + MINOR + minor;
+            FINALURL = "http://192.168.0.129:8080/markdirect/getPromos" + TOKEN + token + MAJOR + major + MINOR + minor;
         }
         Log.d("URL",FINALURL);
 
