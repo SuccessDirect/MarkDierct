@@ -1,0 +1,43 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.direct.success.markdirect.fragments.SettingsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/fragment_settings___switch_notification_button"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:text="Notification"
+        android:textOn="On"
+        android:textOff="Off"
+        style="@style/buttons_switch"
+        android:layout_marginTop="140dp"
+        android:elevation="6dp"
+        android:background="@drawable/borde_switches"
+        app:theme="@style/Theme.MyActivityTheme"
+        />
+
+    <android.support.v7.widget.SwitchCompat
+        android:id="@+id/fragment_settings___switch_bluetooth_button"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:text="Bluetooth"
+        style="@style/buttons_switch"
+        android:textOn="On"
+        android:textOff="Off"
+        android:layout_marginTop="65dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/fragment_settings___switch_notification_button"
+        android:elevation="10dp"
+        android:background="@drawable/borde_switches"
+        app:theme="@style/Theme.MyActivityTheme"
+        />
+    </RelativeLayout>
+
+</FrameLayout>

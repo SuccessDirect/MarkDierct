@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">MarkDirect</string>
+    <string name="app_name">Activa</string>
+    <string name="title_activity_general">Ofertas Generales</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="facebook_app_id">486473578409917</string>
+    <string name="linkedin_daniel">https://www.linkedin.com/in/danielioniceanu/</string>
+    <string name="linkedin_matias">https://www.linkedin.com/in/josematiasalcaidejimenez/</string>
+    <string name="linkedin_marcos">https://www.linkedin.com/in/marcosvaldi/</string>
+    <string name="linkedin_elias">https://www.linkedin.com/in/eliasmuol/</string>
+    <string name="linkedin_antonio">https://www.linkedin.com/in/antonio-jesus-cazalla/</string>
+    <string name="git_daniel">https://github.com/danielioniceanu</string>
+    <string name="git_matias">https://github.com/jmajyo</string>
+    <string name="git_marcos">https://github.com/markinhos3</string>
+    <string name="git_elias">https://github.com/eliasmuol/</string>
+    <string name="git_antonio">https://github.com/cazallau</string>
+    <string name="permission_granted">Permiso concedido</string>
+    <string name="permission_denied_location_title">Alerta permisos</string>
+    <string name="permission_denied_location_msg">Permisos denegados</string>
+    <string name="defaultProgressTitle">defaultProgressTitulo</string>
+    <string name="permission_location_rationale_title">No dispone de permisos</string>
+    <string name="permission_location_rationale_msg">Necesita conceder permisos a la aplicación</string>
+
+
+
 </resources>
