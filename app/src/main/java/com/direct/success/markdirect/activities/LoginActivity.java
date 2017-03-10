@@ -151,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
                                     e.printStackTrace();
                                 }
                                 try {//TODO:convertir a edad
-                                    String birthday = object.getString("birthday"); // 01/31/1980 format
+                                    birthday = object.getString("birthday"); // 01/31/1980 format
                                     Log.d("cumpleeeee", birthday);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -162,6 +162,49 @@ public class LoginActivity extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
+
+                                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
+                                try {
+                                    Date dateOfBirth = simpleDateFormat.parse(birthday);
+                                    int age = 0;
+                                    Calendar born = Calendar.getInstance();
+                                    Calendar now = Calendar.getInstance();
+                                    if(dateOfBirth!= null) {
+                                        now.setTime(new Date());
+                                        born.setTime(dateOfBirth);
+                                        if(born.after(now)) {
+                                            throw new IllegalArgumentException("Can't be born in the future");
+                                        }
+                                        age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
+                                        if(now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR))  {
+                                            age-=1;
+                                        }
+                                    }
+                                    birthday=""+age;
+                                    Log.d("birthday",birthday);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                                RegisterUserAPI registerUserAPI = new RegisterUserAPI();
+                                registerUserAPI.sendPost(getBaseContext(), email, "",birthday,gender, "FACEBOOK");
+                                registerUserAPI.setListener(new RegisterUserAPI.RegisterUserAPINewTokenListener() {
+                                    @Override
+                                    public void onNewToken(String token) {
+                                        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        editor.putString("Token", tokenFacebook);
+                                        editor.putString("Tipo", "FACEBOOK");
+                                        editor.commit();
+                                        Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
+                                        startActivity(i);
+
+                                    }
+                                });
+
+
 
                             }
                         });
@@ -191,50 +234,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
-            if(resultCode==-1)
-            {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM/dd/yyyy");
-                try {
-                    Date dateOfBirth = simpleDateFormat.parse("11/29/2010");
-                    int age = 0;
-                    Calendar born = Calendar.getInstance();
-                    Calendar now = Calendar.getInstance();
-                    if(dateOfBirth!= null) {
-                        now.setTime(new Date());
-                        born.setTime(dateOfBirth);
-                        if(born.after(now)) {
-                            throw new IllegalArgumentException("Can't be born in the future");
-                        }
-                        age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
-                        if(now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR))  {
-                            age-=1;
-                        }
-                    }
-                    birthday=""+age;
-                    Log.d("birthday",birthday);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-
-
-                RegisterUserAPI registerUserAPI = new RegisterUserAPI();
-                registerUserAPI.sendPost(getBaseContext(), email, "",birthday,gender, "FACEBOOK");
-                registerUserAPI.setListener(new RegisterUserAPI.RegisterUserAPINewTokenListener() {
-                    @Override
-                    public void onNewToken(String token) {
-                        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-
-                        SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("Token", tokenFacebook);
-                        editor.putString("Tipo", "FACEBOOK");
-                        editor.commit();
-                        Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
-                        startActivity(i);
-
-                    }
-                });
+            if(resultCode==-1) {
                 Intent i = new Intent(LoginActivity.this, GeneralActivity.class);
-                i.putExtra("id",id);
+                i.putExtra("id", id);
                 startActivity(i);
             }
 
