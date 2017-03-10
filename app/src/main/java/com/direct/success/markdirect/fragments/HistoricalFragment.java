@@ -3,6 +3,7 @@ package com.direct.success.markdirect.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class HistoricalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_historical, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Beacons Detectados");
         textoTrazabilidad = (TextView) view.findViewById(R.id.fragment_historical___text);
         Realm realm = Realm.getDefaultInstance();
         RealmResults<Bacon> listOfBaconInRealm = realm.where(Bacon.class).findAllSorted("date");
