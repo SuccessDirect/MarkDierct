@@ -1,7 +1,7 @@
 > ## __Marzo 2017 | © SUCCESS DIRECT__
 ---
 
-![Splash](screenshots/splashScreen.png "Splash")
+![Splash](screenshots/splashscreen.png "Splash")
 
 ![login](screenshots/login.png "login")
 
