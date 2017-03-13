@@ -18,11 +18,11 @@
         <item
             android:id="@+id/about_us"
             android:icon="@mipmap/about_us"
-            android:title="About Us" />
+            android:title="Desarrolladores" />
         <item
             android:id="@+id/trazabilidad"
             android:icon="@mipmap/historico"
-            android:title="Historico"/>
+            android:title="Histórico"/>
         <item
             android:id="@+id/log_out"
             android:icon="@mipmap/log_out"
